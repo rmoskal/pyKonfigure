@@ -1,1 +1,1 @@
-__author__ = 'rob'
+from konfigure import *

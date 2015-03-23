@@ -3,7 +3,6 @@ import os
 import inspect
 import importlib
 
-
 class Konfigure:
     def __init__(self, mappings={"FLASK_ENV": "ENV"}, env_keys={'test': 'TestConfig',
                                                                 'development': 'DevConfig',
@@ -58,11 +57,10 @@ def load_env_mapping(settings_loc, key, env_keys):
     for k, v in env_keys.iteritems():
         class_ = getattr(module, v)
         konfigs[k] = class_
-    return _load_env_mapping(key, konfigs)
+    return inner_load_env_mapping(key, konfigs)
 
 
-
-def _load_env_mapping(key, env_keys):
+def inner_load_env_mapping(key, env_keys):
     """
     Instantiates an environment configuration by key
     :param key:
