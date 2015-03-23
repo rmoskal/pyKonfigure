@@ -35,6 +35,12 @@ Here's an example settings file:
         }
         MAIL_SUPPRESS_SEND = True
 
-There are 3 configuration classes and 
+There are 3 configuration classes and a base class. This is how you create an instance of pyKonfigure:
 
-    Konfigure(
+    cfg = Konfigure( mappings={"FLASK_ENV": "ENV"},
+         env_keys={'test': 'TestConfig','development': 'DevConfig','production': 'ProdConfig'},
+         settings_loc='settings')
+         
+those happen to be all the default values.  Starting from the end settings_loc is a string identifying the module containing the 
+above configuration fle.  env_keys map each environment to a class containing its settings and mappings is a list of 
+        
